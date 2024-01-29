@@ -1,0 +1,59 @@
+<form [formGroup]="ProductObj.formUserGroup">
+    <fieldset>
+        <div class="form-field" style="margin-bottom: 20px;">
+            <label style="margin-right: 10px;">Name:</label>
+            <input name="name" [(ngModel)]="currentproduct.name" formControlName="ProductNameControl">
+        </div>
+        <div class="form-field" style="margin-bottom: 20px;">
+            <label style="margin-right: 10px;">Description:</label>
+            <input name="description" [(ngModel)]="currentproduct.description" formControlName="ProductDescriptionControl" 
+                   >
+        </div>
+        <div class="form-field" style="margin-bottom: 20px;">
+            <label style="margin-right: 10px;">Price:</label>
+            <input name="price" [(ngModel)]="currentproduct.price" formControlName="ProductPriceControl">
+        </div>
+        <div class="form-field" style="margin-bottom: 20px;">
+            <label style="margin-right: 10px;">Brand:</label>
+            <input name="brand" [(ngModel)]="currentproduct.name" formControlName="ProductBrandControl" 
+                   >
+        </div>
+        <div class="form-field" style="margin-bottom: 20px;">
+            <label style="margin-right: 10px;">Category:</label>
+            <input name="category" [(ngModel)]="currentproduct.category" formControlName="ProductCategoryControl">
+        </div>
+        <div class="form-field" style="margin-bottom: 20px;">
+            <label style="margin-right: 10px;">Quantity:</label>
+            <input name="quantity" [(ngModel)]="currentproduct.quantity" formControlName="ProductQuantityControl" 
+                   >
+        </div>
+        </fieldset> 
+        <table>
+            <tr>
+                <td>
+                    <div class="form-buttons" style="margin-top: 10px;">
+                        <button [disabled]="!ProductObj.formUserGroup.valid" class="button button-primary" 
+                                (click)="Add()">Add Product</button>
+                    </div>
+                </td>
+                <td>
+                    <div class="form-buttons" style="margin-top: 10px;">
+                        <button [disabled]="!ProductObj.formUserGroup.valid" class="button button-primary" 
+                                (click)="Update()">Update Product</button>
+                    </div>
+                </td>
+                <td>
+   
+
+                    <div class="form-buttons" style="margin-top: 10px;">
+                        <button [disabled]="!ProductObj.formUserGroup.valid" class="button button-primary" 
+                                (click)="Delete()">Delete Product</button>
+                    </div>
+                </td>
+            </tr>
+        </table>
+  
+        </form> 
+        <div>
+            <app-grid [row-data]="products" [name]="'Products'" (grid-selected)="Select($event)"></app-grid>
+        </div>

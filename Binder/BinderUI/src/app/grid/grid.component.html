@@ -1,0 +1,16 @@
+
+{{name}}
+
+<table *ngIf="rowData" style="border: 3px;border-style: solid;">
+    <tr *ngIf="columnDefs" >
+        <th *ngFor="let l of columnDefs" >{{l}}</th>
+    </tr>
+    <tr *ngFor="let l of rowData" >
+   <td *ngFor="let k of columnDefs" >
+        {{l[k]}}
+       
+       </td>    
+       <td>
+        <a href="#" (click)="Select(l)">Select</a></td>
+    </tr>
+</table>

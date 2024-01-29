@@ -1,0 +1,58 @@
+
+<form [formGroup]="UserObj.formUserGroup">
+    <fieldset>
+        <legend>Create User</legend>
+        <div class="form-field" style="margin-bottom: 20px;">
+            <label style="margin-right: 10px;">FirstName:</label>
+            <input name="firstname"  [(ngModel)]="UserObj.firstName" formControlName="UserFirstNameControl">
+        </div>
+        <div *ngIf="(UserObj.IsDirty('UserFirstNameControl')==true)"
+        [hidden]="UserObj.IsValid('UserFirstNameControl','required')"> Customer First Name is required</div>
+   <br />   
+        <div class="form-field" style="margin-bottom: 20px;">
+            <label style="margin-right: 10px;">LastName:</label>
+            <input name="lastname" [(ngModel)]="UserObj.lastName" formControlName="UserLastNameControl" >
+        </div>
+        <div *ngIf="(UserObj.IsDirty('UserLastNameControl')==true)"
+        [hidden]="UserObj.IsValid('UserLastNameControl','required')"> Customer Last Name is required</div>
+   <br />  
+        <div class="form-field" style="margin-bottom: 20px;">
+            <label style="margin-right: 10px;">Address:</label>
+            <input name="address" [(ngModel)]="UserObj.address" formControlName="UserAddressControl" >
+        </div>
+        <div *ngIf="(UserObj.IsDirty('UserAddressControl')==true)"
+        [hidden]="UserObj.IsValid('UserAddressControl','required')"> Customer Address is required</div>
+   <br /> 
+        <div class="form-field" style="margin-bottom: 20px;">
+            <label style="margin-right: 10px;">Email:</label>
+            <input name="email" [(ngModel)]="UserObj.email" formControlName="UserEmailControl">
+        </div>
+        <div *ngIf="(UserObj.IsDirty('UserEmailControl')==true)"
+        [hidden]="UserObj.IsValid('UserEmailControl','required')"> Customer Email is required</div>
+   <br /> 
+        <div class="form-field" style="margin-bottom: 20px;">
+            <label style="margin-right: 10px;">Password:</label>
+            <input name="password" [(ngModel)]="UserObj.password" formControlName="UserPasswordControl" 
+                   type="password">
+        </div>
+        <div *ngIf="(UserObj.IsDirty('UserPasswordControl')==true)"
+        [hidden]="UserObj.IsValid('UserPasswordControl','required')"> Customer password is required</div>
+   <br /> 
+    </fieldset>
+    <table>
+        <tr>
+            <td>
+        <div class="form-buttons" style="margin-top: 10px;">
+            <button [disabled]="!UserObj.formUserGroup.valid" class="button button-primary" 
+                    (click)="CreateUser()">Add User</button>
+        </div></td>
+
+        <td>
+            <div class="form-buttons" style="margin-top: 10px;">
+                <button [disabled]="!UserObj.formUserGroup.valid" class="button button-primary" 
+                        (click)="Submit()">Submit</button>
+            </div></td>
+    </tr>
+    </table>
+
+</form>

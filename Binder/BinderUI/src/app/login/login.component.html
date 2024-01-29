@@ -1,0 +1,23 @@
+<form [formGroup]="UserObj.formUserGroup">
+    <fieldset>
+        <div class="form-field" style="margin-bottom: 20px;">
+            <label style="margin-right: 10px;">Email:</label>
+            <input name="email" [(ngModel)]="UserObj.email" formControlName="UserEmailControl">
+        </div>
+        <div *ngIf="(UserObj.IsDirty('UserEmailControl')==true)"
+        [hidden]="UserObj.IsValid('UserEmailControl','required')"> Email is required</div>
+   <br />   
+        <div class="form-field" style="margin-bottom: 20px;">
+            <label style="margin-right: 10px;">Password:</label>
+            <input name="password" [(ngModel)]="UserObj.password" formControlName="UserPasswordControl" 
+                   type="password">
+        </div>
+        <div *ngIf="(UserObj.IsDirty('UserPasswordControl')==true)"
+        [hidden]="UserObj.IsValid('UserPasswordControl','required')"> Password is required</div>
+   <br />   
+        </fieldset> 
+        <div class="form-buttons" style="margin-top: 10px;">
+            <button [disabled]="!UserObj.formUserGroup.valid" class="button button-primary" 
+                    (click)="Login()">Login</button>
+        </div>
+        </form> 
